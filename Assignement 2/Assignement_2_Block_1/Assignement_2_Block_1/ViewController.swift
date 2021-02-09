@@ -42,7 +42,7 @@ class ViewController: UIViewController {
 
     /// Task 2
     func numberGame(number: Int) {
-        for i in 1...number {
+        for i in 0...number {
             print("\(i), \(number - i)")
         }
     }
