@@ -1,0 +1,82 @@
+//
+//  SwiftRobotControlCenter.swift
+//  MyRobot
+//
+//  Created by Ivan Vasilevich on 10/4/14.
+//  Copyright (c) 2014 Ivan Besarab. All rights reserved.
+//
+
+import UIKit
+//  All robot commands can be founded in GameViewController.h
+class SwiftRobotControlCenter: RobotControlCenter {
+    
+    //  Level name setup
+    override func viewDidLoad() {
+        levelName = "L55H" //  Level name
+        super.viewDidLoad()
+    }
+    
+    override func run() {
+        buildRaw()
+        turnRight()
+        while frontIsClear {
+            leftRaw()
+            if frontIsBlocked {break}
+            rightRaw()
+        }
+    }
+    
+    /// Размечаем ряд
+    func buildRaw() {
+        while frontIsClear {
+            move()
+            put()
+            if frontIsClear {
+                move()
+            }
+        }
+    }
+    
+    ///
+    
+    /// След ряд влево
+    func leftRaw() {
+        if candyPresent {
+            move()
+            turnRight()
+            buildRaw()
+            turnLeft()
+        }else {
+            move()
+            put()
+            turnRight()
+            move()
+            buildRaw()
+            turnLeft()
+        }
+    }
+    
+    /// След ряд вправо
+    func rightRaw() {
+        if candyPresent {
+            move()
+            turnLeft()
+            buildRaw()
+            turnRight()
+        }else {
+            move()
+            put()
+            turnLeft()
+            move()
+            buildRaw()
+            turnRight()
+        }
+    }
+    
+    /// Повернуться влево
+    func turnLeft() {
+        for _ in 1...3 {
+            turnRight()
+        }
+    }
+}

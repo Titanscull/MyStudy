@@ -1,0 +1,87 @@
+//
+// SwiftRobotControlCenter.swift
+// MyRobot
+//
+// Created by Ivan Vasilevich on 10/4/14.
+// Copyright (c) 2014 Ivan Besarab. All rights reserved.
+//
+import UIKit
+//  All robot commands can be founded in GameViewController.h
+class SwiftRobotControlCenter: RobotControlCenter {
+    
+    //  Assignement3
+    override func viewDidLoad() {
+        levelName = "L4H" //  Level name
+        super.viewDidLoad()
+    }
+    
+    override func run() {
+        findCenter()
+    }
+    
+    /// Find center main func
+    func findCenter() {
+        findCorners()
+        replaceCandy()
+        nextCandy()
+        findWalls()
+    }
+    
+    /// Next candy
+    func nextCandy() {
+        while noCandyPresent {
+            move()
+            if candyPresent {
+                replaceCandy()
+            }
+        }
+        pick()
+        backTurn()
+        move()
+        pick()
+        while !facingDown {
+            turnRight()
+        }
+    }
+    
+    /// First corners on X Axis
+    func findCorners() {
+        while frontIsClear && noCandyPresent {
+            move()
+            if candyPresent {break}
+            if frontIsBlocked {
+                put()
+                backTurn()
+                move()
+            }
+        }
+    }
+    
+    /// Find walls on Y axis
+    func findWalls() {
+        if frontIsBlocked {
+            return
+        }
+        findCorners()
+        replaceCandy()
+        nextCandy()
+    }
+    
+    /// Replace candy
+    func replaceCandy() {
+        pick()
+        backTurn()
+        move()
+        put()
+        move()
+    }
+    
+    /// Turn youre back
+    func backTurn() {
+        for _ in 1...2 {
+            turnRight()
+        }
+    }
+    
+    
+}

@@ -1,0 +1,84 @@
+//
+//  SwiftRobotControlCenter.swift
+//  MyRobot
+//
+//  Created by Ivan Vasilevich on 10/4/14.
+//  Copyright (c) 2014 Ivan Besarab. All rights reserved.
+//
+
+import UIKit
+//  All robot commands can be founded in GameViewController.h
+class SwiftRobotControlCenter: RobotControlCenter {
+    
+    //  Level name setup
+    override func viewDidLoad() {
+        levelName = "L2H" //  Level name
+        super.viewDidLoad()
+    }
+    
+    override func run() {
+        solveTask()
+    }
+    
+    /// Build all coloumns main func
+    func solveTask() {
+        for _ in 1...2 {
+            coloumnUp()
+            nextColoumne()
+            coloumnDown()
+            nextColoumne()
+        }
+    }
+    
+    /// Build coloumne up
+    func coloumnUp() {
+        turnLeft()
+        for _ in 1...8 {
+            if noCandyPresent {
+                put()
+                move()
+            }else if frontIsClear {
+                move()
+            }
+        }
+        turnRight()
+        if noCandyPresent {
+            put()
+        }
+    }
+    
+    /// Build a coloumne Down
+    func coloumnDown() {
+        turnRight()
+        for _ in 1...8 {
+            if noCandyPresent {
+                put()
+                move()
+            }else if frontIsClear {
+                move()
+            }
+        }
+        turnLeft()
+        if noCandyPresent {
+            put()
+        }
+    }
+    
+    /// Go next coloumne
+    func nextColoumne() {
+        for _ in 1...4 {
+            if frontIsBlocked {break}
+            move()
+        }
+    }
+    
+    /// Make a turn left
+    func turnLeft() {
+        for _ in 1...3 {
+            turnRight()
+        }
+    }
+   
+    
+}
+
