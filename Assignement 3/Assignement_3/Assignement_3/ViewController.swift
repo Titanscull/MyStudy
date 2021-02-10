@@ -19,6 +19,8 @@ class ViewController: UIViewController {
         formatNumber(number: 98749876587364502)
         passwordCheck(pswrd: "qwErty1")
         sortArray()
+        translite(text: "Привет Мир")
+        
     }
     
     /// Task 1
@@ -158,10 +160,34 @@ class ViewController: UIViewController {
         
     }
     
-    
-    
-    
+    /// Task 8
+    func translite(text: String) {
+        
+        let transliteDict = ["А": "A", "а": "a", "Б": "B", "б": "b", "В": "V", "в": "v", "Г": "G", "г": "g", "Д": "D", "д": "d", "Е": "E", "е": "e", "Ё": "E", "ё": "e", "Ж": "ZH", "ж": "zh", "З": "Z", "з": "z", "И": "I", "и": "i", "Й": "I", "й": "i", "К": "K", "к": "k", "Л": "L", "л": "l","М": "M", "м": "m", "Н": "N", "н": "n", "О": "O", "о": "o", "П": "P", "п": "p", "Р": "R", "р": "r", "С": "S", "с": "s", "Т": "T", "т": "t", "У": "U", "у": "u", "Ф": "F", "ф": "f", "Х": "H", "х": "h", "Ц": "C", "ц": "c", "Ч": "CH", "ч": "ch", "Ш": "SH", "ш": "sh", "Щ": "SH", "щ": "sh", "Ъ": "", "ъ": "", "Ы": "Y", "ы": "y", "Ь": "", "ь": "", "Э": "E", "э": "e", "Ю": "JU", "ю": "ju", "Я": "YA", "я": "ya"]
+        
+        var transliteText = ""
+        
+        for char in text {
+            let character = "\(char)"
+            
+            if let transliteChar = transliteDict[character] {
+                // letter
+                transliteText += transliteChar
+            } else {
+                // space
+                transliteText += character
+            }
+        }
+        
+        print(transliteText)
+        
+    }
     
     
 }
+
+
+
+
+
 
