@@ -18,6 +18,7 @@ class ViewController: UIViewController {
         mirror(text: "Ocq")
         formatNumber(number: 98749876587364502)
         passwordCheck(pswrd: "qwErty1")
+        sortArray()
     }
     
     /// Task 1
@@ -134,7 +135,28 @@ class ViewController: UIViewController {
         
     }
     
-    
+    /// Task 7
+    func sortArray(){
+        let numberArray =  [9, 1, 2, 5, 1, 7]
+        var sortedNumberArray = [Int]()
+        
+        for i in numberArray {
+            if !sortedNumberArray.contains(i) {
+                sortedNumberArray.append(i)
+            }
+        }
+        
+        for i1 in 0...sortedNumberArray.count - 1 {
+            for i2 in 0...sortedNumberArray.count - 2 {
+                if sortedNumberArray[i1] < sortedNumberArray[i2] {
+                    sortedNumberArray.swapAt(i1,i2)
+                }
+            }
+        }
+        
+        print("Array of numbers \(numberArray) without iterations & sorted will look like \(sortedNumberArray)")
+        
+    }
     
     
     
