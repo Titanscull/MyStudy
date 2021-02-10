@@ -15,11 +15,12 @@ class ViewController: UIViewController {
         nameCounts(name: "Zhenya")
         endingPresent(patronymic: "Viktorovych")
         separateMyName(fullName: "ZhenyaPetrovskiy")
-        mirror(text: "Ocq")
+        mirror(text: "Goldpeanuts")
         formatNumber(number: 98749876587364502)
         passwordCheck(pswrd: "qwErty1")
         sortArray()
         translite(text: "Привет Мир")
+        sortArrayByKey(key: "da")
         
     }
     
@@ -140,7 +141,7 @@ class ViewController: UIViewController {
     /// Task 7
     func sortArray(){
         let numberArray =  [9, 1, 2, 5, 1, 7]
-        var sortedNumberArray = [Int]()
+        var sortedNumberArray: [Int] = []
         
         for i in numberArray {
             if !sortedNumberArray.contains(i) {
@@ -177,9 +178,29 @@ class ViewController: UIViewController {
             }
         }
         
-        print(transliteText)
+        print("Youre translation for \(text) is appear to be \(transliteText)")
         
     }
+    
+    /// Task 9
+    func sortArrayByKey(key: String) {
+        let key = "da"
+        let stringArray = ["lada", "sedan", "baklazhan"]
+        var selectedStringArray: [String] = []
+        
+        var counter = 0
+        for title in stringArray {
+            if title.lowercased().contains(key.lowercased()) {
+                selectedStringArray.append(title)
+                counter += 1
+            }
+        }
+        
+        print("In array there are \(counter) elements \(selectedStringArray) with key \(key) ")
+        
+    }
+    
+    /// Task 10
     
     
 }
