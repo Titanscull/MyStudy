@@ -171,10 +171,8 @@ class ViewController: UIViewController {
             let character = "\(char)"
             
             if let transliteChar = transliteDict[character] {
-                // letter
                 transliteText += transliteChar
             } else {
-                // space
                 transliteText += character
             }
         }
