@@ -21,21 +21,22 @@ class ViewController: UIViewController {
         sortArray()
         translite(text: "Привет Мир")
         sortArrayByKey(key: "da")
+        antimat(text: "Fuck me i am famous")
         
     }
     
     /// Task 1
     func nameCounts(name: String) {
-        print("In name \(name) there are \(name.count) individual letters")
+        print("In name \(name) there are \(name.count) individual letters.")
     }
     
     /// Task 2
     func endingPresent(patronymic: String) {
         let ending = "ych"
         if patronymic.hasSuffix(ending) {
-            print("Ending ...\(ending) is present in patronymic \(patronymic)")
+            print("Ending ...\(ending) is present in patronymic \(patronymic).")
         } else {
-            print("There is no ending ...\(ending) in patronymic \(patronymic)")
+            print("There is no ending ...\(ending) in patronymic \(patronymic).")
         }
     }
     
@@ -70,7 +71,7 @@ class ViewController: UIViewController {
         let name2 = String(str2.reversed())
         let newFullName = "\(name2) \(name1)"
         
-        print("Correct typing of \(fullName) will be \(newFullName)")
+        print("Correct typing of \(fullName) will be \(newFullName).")
         
     }
     
@@ -106,7 +107,7 @@ class ViewController: UIViewController {
         }
         
         let formatedNumber = String(stringNumberReversed.reversed())
-        print("Formated number \(number) will going to be \(formatedNumber)")
+        print("Formated number \(number) will going to be \(formatedNumber).")
         
     }
     
@@ -131,9 +132,9 @@ class ViewController: UIViewController {
         }
         
         if passArray.count == 4 {
-            print("Youre Password passes all condition's with \(passArray.count) matches")
+            print("Youre Password passes all condition's with \(passArray.count) matches.")
         } else if passArray.count < 4 {
-            print("Youre Password missmathche's conditions by \(4 - passArray.count)")
+            print("Youre Password missmathche's conditions by \(4 - passArray.count).")
         }
         
     }
@@ -157,7 +158,7 @@ class ViewController: UIViewController {
             }
         }
         
-        print("Array of numbers \(numberArray) without iterations & sorted will look like \(sortedNumberArray)")
+        print("Array of numbers \(numberArray) without iterations & sorted will look like \(sortedNumberArray).")
         
     }
     
@@ -178,7 +179,7 @@ class ViewController: UIViewController {
             }
         }
         
-        print("Youre translation for \(text) is appear to be \(transliteText)")
+        print("Youre translation for \(text) is appear to be \(transliteText).")
         
     }
     
@@ -196,13 +197,24 @@ class ViewController: UIViewController {
             }
         }
         
-        print("In array there are \(counter) elements \(selectedStringArray) with key \(key) ")
+        print("In array there are \(counter) elements \(selectedStringArray) with key \(key).")
         
     }
     
     /// Task 10
+    func antimat(text: String) {
+        var newText = String(text)
+        let badWord: Set<String> = ["Fuck", "fuk"]
+        
+        for i in badWord {
+            newText = newText.replacingOccurrences(of: i, with: "****")
+        }
+        
+        print("Try not to use bad words, for now you're text will appear like \(newText).")
+    }
     
-    
+
+
 }
 
 
