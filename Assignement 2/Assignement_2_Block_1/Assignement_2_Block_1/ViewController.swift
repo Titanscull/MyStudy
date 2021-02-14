@@ -13,7 +13,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        biggestNumber(number1: 1, number2: 5)
+        biggestNumber()
         arithmetics(number: 5)
         numberGame(number: 6)
         intDevisor(number: 6)
@@ -22,7 +22,11 @@ class ViewController: UIViewController {
 
     /// Task 0
     
-    func biggestNumber(number1: Int, number2: Int) {
+    func biggestNumber() {
+        
+        let number1 = Int.random(in: 1...10)
+        let number2 = Int.random(in: 1...10)
+        
         if number1 > number2 {
             print("\(number1) is bigger then \(number2)")
         } else if number2 > number1 {
@@ -50,7 +54,7 @@ class ViewController: UIViewController {
     /// Task 3
     func intDevisor(number: Int) {
         var devisorArray = [Int]()
-        for i in 1..<number {
+        for i in 1...number {
             if (number % i) == 0 {
                 devisorArray.append(i)
             }
@@ -69,7 +73,7 @@ class ViewController: UIViewController {
         }
         let summ = devisorsArray.reduce(0 , +)
         if number == summ {
-            print("\(number) is a perfect number")
+            print("\(number) is a perfect number with a summ of \(devisorsArray) devisors equals to \(number)")
         } else {
             print("\(number) is not a perfect number, try again with different number")
         }
