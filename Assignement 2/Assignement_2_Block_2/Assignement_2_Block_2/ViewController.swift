@@ -75,7 +75,7 @@ class ViewController: UIViewController {
             counter += 1
         }
         
-        print("If student have \(savings)hrn in his pocket allready & get \(scholarship)hrn - he can survive \(counter) monthes without need to have an additional income")
+        print("If student have \(savings)hrn in his pocket allready & get \(scholarship)hrn per month as a scholarship - he can survive \(counter) monthes without need to have an additional income")
     }
     
     /// Forth task few ways
