@@ -32,27 +32,29 @@ class ViewController: UIViewController {
         for _ in 1...amountOfYears {
             totalMoney = Double(totalMoney) + Double(totalMoney) * Double(percentPerYaer)
         }
-        print ("If they, instead of buying Island for \(Int(price))USD, did put money on the bank account - they could get \(Int(totalMoney)) USD in total after \(amountOfYears) years")
+        print ("If they, instead of buying Island for \(Int(price))USD, did put money on the bank account - they could get \(Int(totalMoney)) USD in total after \(amountOfYears) years.")
     }
     
     /// Second task
     func howMuchMoneyDOyouNeed() {
+//        Определить, какую нужно иметь сумму денег, чтобы прожить учебный год (10 месяцев), используя только эти деньги и стипендию.
         let scholarship = 700
         var expences = 1000
-        let priceRisePercent = 1.03
+        let priceRisePercent = 3
         let academicYear = 10
-        var totalExpences = Double()
+        var totalExpences = 0
         
         for _ in 1...academicYear {
-            totalExpences = Double(expences) + Double(totalExpences) * Double(priceRisePercent)
-            expences = Int(Double(expences) + Double(expences) * 0.03)
+            totalExpences += expences
+            expences = Int(Double(expences) * 1.03)
         }
-        print("Total expences for student per academic Year are \(Int(totalExpences))")
         
-        let expencesPerMonth = Double(totalExpences) / Double(academicYear)
-        print("Per month student's expences are \(Int(expencesPerMonth))")
-        let needToGet = Double(expencesPerMonth) - Double(scholarship)
-        print("Student need to find somewhere additional \(Int(needToGet))hrn per month to be able to survive \(academicYear) monthes")
+        let totalScholarship = scholarship * academicYear
+        
+        let needToGet = totalExpences - totalScholarship
+        
+        print("Per academic year students expenses are going to be \(totalExpences)hrn, income is \(totalScholarship)hrn by getting scholarship, in addition to survive somehow, he need to get \(needToGet)hrn more")
+    
     }
     
     /// Third Task
@@ -62,15 +64,16 @@ class ViewController: UIViewController {
         var expencesPerMonth = 1000
         let priceRise = 1.03
         var counter = 0
-        var totalMoney = savings + scholarship - Int(Double(expencesPerMonth) * Double(priceRise))
+        var totalMoney = savings
         
         while totalMoney > 0 {
-            totalMoney = Int(Double(totalMoney) - Double(expencesPerMonth) * Double(priceRise) + Double(scholarship))
-            expencesPerMonth = Int(Double(expencesPerMonth) + Double(expencesPerMonth) * 0.03)
+            totalMoney -= (expencesPerMonth - scholarship)
+            if totalMoney < 0 {break}
+            expencesPerMonth = Int(Double(expencesPerMonth) * priceRise)
             counter += 1
         }
         
-        print("If student have \(savings)hrn in his pocket allready & get \(scholarship)hrn income each month with \(expencesPerMonth)hrn as his expences per month - he can survive \(counter) monthes without need to have an additional income")
+        print("If student have \(savings)hrn in his pocket allready & get \(scholarship)hrn - he can survive \(counter) monthes without need to have an additional income")
     }
     
     /// Forth task few ways
@@ -90,10 +93,10 @@ class ViewController: UIViewController {
         print("The revers of a number \(number) will be number \(reversNumber)")
         
         /// Way#2
-//        let numberArray = String(number)
-//                let reverse = String(numberArray.reversed())
-//               print("The revers of a number \(number) will be number \(reversNumber)")
-//        
+        //        let numberArray = String(number)
+        //                let reverse = String(numberArray.reversed())
+        //               print("The revers of a number \(number) will be number \(reversNumber)")
+        //
         
         
     }
