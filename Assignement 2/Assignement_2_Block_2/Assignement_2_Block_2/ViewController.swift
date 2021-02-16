@@ -15,12 +15,13 @@ class ViewController: UIViewController {
         manhattan()
         howMuchMoneyDOyouNeed()
         howLongHeCanSurvive()
-        reversNumber(number: 763)
+        reversNumber(number: 947876)
         
     }
     
     /// First Task
     func manhattan () {
+        
         let start = 1826
         let finish = 2021
         let price = 24.0
@@ -37,7 +38,7 @@ class ViewController: UIViewController {
     
     /// Second task
     func howMuchMoneyDOyouNeed() {
-//        Определить, какую нужно иметь сумму денег, чтобы прожить учебный год (10 месяцев), используя только эти деньги и стипендию.
+        
         let scholarship = 700
         var expences = 1000
         let priceRisePercent = 3
@@ -54,11 +55,12 @@ class ViewController: UIViewController {
         let needToGet = totalExpences - totalScholarship
         
         print("Per academic year students expenses are going to be \(totalExpences)hrn, income is \(totalScholarship)hrn by getting scholarship, in addition to survive somehow, he need to get \(needToGet)hrn more")
-    
+        
     }
     
     /// Third Task
     func howLongHeCanSurvive() {
+        
         let savings = 2400
         let scholarship = 700
         var expencesPerMonth = 1000
@@ -78,26 +80,22 @@ class ViewController: UIViewController {
     
     /// Forth task few ways
     func reversNumber(number:Int) {
-        /// Way#1
-        let number = String(number)
-        var numberArray = [Character]()
+        
+        var num = number
+        var numberArray = [Int]()
         var reversNumber = ""
         
-        for character in number {
-            numberArray.append(character)
+        numberArray.append(num%10)
+        while num >= 10 {
+            num = num/10
+            numberArray.insert(num%10, at: 0)
         }
         
         for i in 1...numberArray.count {
             reversNumber += String(numberArray[numberArray.count - i])
         }
+        
         print("The revers of a number \(number) will be number \(reversNumber)")
-        
-        /// Way#2
-        //        let numberArray = String(number)
-        //                let reverse = String(numberArray.reversed())
-        //               print("The revers of a number \(number) will be number \(reversNumber)")
-        //
-        
         
     }
     
